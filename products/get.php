@@ -1,12 +1,12 @@
 <?php
 
-include 'conn.php';
+include '../conn.php';
 
 header("Content-type: application/json");
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // sql
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT * FROM products";
     $query = mysqli_query(connection(), $sql);
 
     // output

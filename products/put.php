@@ -1,6 +1,6 @@
 <?php
 
-include('conn.php');
+include '../conn.php';
 
 header('Content-Type: application/json');
 
@@ -8,13 +8,14 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
     //input
     parse_str(file_get_contents('php://input'), $_PUT);
 
-    $username = $_PUT["username"];
-    $email = $_PUT["email"];
-    $password = $_PUT["password"];
+    $name = $_PUT["name"];
+    $description = $_PUT["description"];
+    $price = $_PUT["price"];
+    $stock = $_PUT["stock"];
     $id = $_GET["id"];
 
     //sql
-    $sql = "UPDATE users SET username='$username', email='$email', password='$password' WHERE id=$id";
+    $sql = "UPDATE products SET name='$name', description='$description', price='$price', stock='$stock' WHERE id=$id";
     $query = mysqli_query(connection(), $sql);
 
     //response
